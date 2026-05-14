@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.fc-event.festivo-event {
+  border: none !important;
+  font-size: 0.65rem !important;
+  padding: 1px 4px !important;
+  opacity: 0.9;
+}
