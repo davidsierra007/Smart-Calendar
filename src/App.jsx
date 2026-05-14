@@ -5,6 +5,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import esLocale from '@fullcalendar/core/locales/es';
 import { Anchor, Plus, X, CalendarDays, List, Loader2, Phone, Fingerprint, Clock, Ship, Trash2, Edit3, Users, DollarSign, User, RefreshCw } from 'lucide-react';
+import { UserButton } from '@clerk/clerk-react';
 
 const obtenerTarifaDinamica = (servicioInfo, cantidadPasajeros) => {
   if (!servicioInfo || !servicioInfo.fields) return 0;
@@ -355,7 +356,7 @@ export default function App() {
       <aside className="w-80 bg-[#0F172A] text-slate-300 flex flex-col z-20 shadow-2xl">
         <div className="p-8 flex items-center gap-3">
           <div className="bg-blue-600 p-2 rounded-xl text-white shadow-lg"><Anchor size={24} /></div>
-          <span className="text-xl font-black text-white uppercase italic tracking-wider">smart-P</span>
+          <span className="text-xl font-black text-white uppercase italic tracking-wider">Smart Calendar</span>
         </div>
         <div className="px-4 mb-8 space-y-2">
           <button onClick={() => setVista('calendario')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl ${vista === 'calendario' ? 'bg-blue-600 text-white shadow-lg' : 'hover:bg-slate-800/50'}`}><CalendarDays size={18} /> <b>Calendario</b></button>
@@ -378,6 +379,9 @@ export default function App() {
               <RefreshCw size={18} className={isSyncing ? "animate-spin text-blue-600" : ""} /> Sincronizar
             </button>
             <button onClick={() => { setEditingId(null); setIsModalOpen(true); }} className="bg-slate-900 text-white px-8 py-3.5 rounded-2xl font-bold shadow-xl active:scale-95 transition-all">+ Programar</button>
+            <div className="flex items-center ml-2 border-l border-slate-200 pl-6">
+              <UserButton afterSignOutUrl="/" />
+            </div>
           </div>
         </header>
 
